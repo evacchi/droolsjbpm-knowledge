@@ -38,19 +38,69 @@ import java.util.Map;
  * Result parameters can contain results related to the execution of this
  * work item (e.g. "Success" = true).
  *
- * @see org.kie.api.runtime.process.WorkItemHandler
- * @see org.kie.api.runtime.process.WorkItemManager
+ * @see WorkItemHandler
+ * @see WorkItemManager
  */
-public interface WorkItem extends TypedWorkItem<Map<String, Object>> {
+public interface TypedWorkItem<T> {
+
+    int PENDING   = 0;
+    int ACTIVE    = 1;
+    int COMPLETED = 2;
+    int ABORTED   = 3;
 
     /**
-     * Returns the value of the parameter with the given name.  Parameters
-     * can be used to pass information necessary for the execution of this
-     * work item.  Returns <code>null</code> if the parameter cannot be found.
-     *
-     * @param name the name of the parameter
-     * @return the value of the parameter
+     * The unique id of this work item
+     * @return the id of this work item
      */
-    Object getParameter(String name);
+    long getId();
+
+    /**
+     * The name of the work item.  This represents the type
+     * of work that should be executed.
+     * @return the name of the work item
+     */
+    String getName();
+
+    /**
+     * The state of the work item.
+     * @return the state of the work item
+     */
+    int getState();
+
+    /**
+     * Returns the map of parameters of this work item.  Parameters
+     * can be used to pass information necessary for the execution
+     * of this work item.
+     *
+     * @return parameters of this work item
+     */
+    T getParameters();
+
+    /**
+     * Returns the value of the result parameter with the given name.  Result parameters
+     * can be used to pass information related the result of the execution of this
+     * work item.  Returns <code>null</code> if the result cannot be found.
+     *
+     * @param name the name of the result parameter
+     * @return the value of the result parameter
+     */
+    Object getResult(String name);
+
+    /**
+     * Returns the map of result parameters of this work item.  Result parameters
+     * can be used to pass information related the result of the execution of this
+     * work item.
+     *
+     * @return the map of results of this work item
+     */
+    Map<String, Object> getResults();
+
+    /**
+     * The id of the process instance that requested the execution of this
+     * work item
+     *
+     * @return the id of the related process instance
+     */
+    long getProcessInstanceId();
 
 }
