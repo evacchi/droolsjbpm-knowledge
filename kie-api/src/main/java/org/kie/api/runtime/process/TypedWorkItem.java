@@ -38,31 +38,7 @@ package org.kie.api.runtime.process;
  * @see WorkItemHandler
  * @see WorkItemManager
  */
-public interface TypedWorkItem<P, R> {
-
-    int PENDING = 0;
-    int ACTIVE = 1;
-    int COMPLETED = 2;
-    int ABORTED = 3;
-
-    /**
-     * The unique id of this work item
-     * @return the id of this work item
-     */
-    long getId();
-
-    /**
-     * The name of the work item.  This represents the type
-     * of work that should be executed.
-     * @return the name of the work item
-     */
-    String getName();
-
-    /**
-     * The state of the work item.
-     * @return the state of the work item
-     */
-    int getState();
+public interface TypedWorkItem<P, R> extends BaseWorkItem {
 
     /**
      * Returns the map of parameters of this work item.  Parameters
@@ -79,11 +55,4 @@ public interface TypedWorkItem<P, R> {
      * @return the map of results of this work item
      */
     R getResults();
-
-    /**
-     * The id of the process instance that requested the execution of this
-     * work item
-     * @return the id of the related process instance
-     */
-    long getProcessInstanceId();
 }
