@@ -40,7 +40,7 @@ import java.util.Map;
  * @see org.kie.api.runtime.process.WorkItemHandler
  * @see org.kie.api.runtime.process.WorkItemManager
  */
-public interface WorkItem extends BaseWorkItem {
+public interface WorkItem extends TypedWorkItem<Map<String, Object>, Map<String, Object>> {
 
     int PENDING   = 0;
     int ACTIVE    = 1;
@@ -81,10 +81,4 @@ public interface WorkItem extends BaseWorkItem {
      */
     Map<String, Object> getResults();
 
-    /**
-     * The id of the process instance that requested the execution of this
-     * work item
-     * @return the id of the related process instance
-     */
-    long getProcessInstanceId();
 }
