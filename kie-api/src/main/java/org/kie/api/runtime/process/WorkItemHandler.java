@@ -41,7 +41,7 @@ package org.kie.api.runtime.process;
  * work item (from, to, body, etc.) and invoke the mail server.  Afterwards,
  * it will notify the <code>WorkItemManager</code> that the work item was completed.
  */
-public interface WorkItemHandler {
+public interface WorkItemHandler extends TypedWorkItemHandler<WorkItem> {
 
     /**
      * The given work item should be executed.
@@ -58,5 +58,4 @@ public interface WorkItemHandler {
      */
     void abortWorkItem(WorkItem workItem,
                        WorkItemManager manager);
-
 }
