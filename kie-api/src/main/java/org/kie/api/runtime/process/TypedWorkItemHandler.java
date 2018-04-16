@@ -44,6 +44,8 @@ package org.kie.api.runtime.process;
  */
 public interface TypedWorkItemHandler<W extends TypedWorkItem<?, ?>> {
 
+    W createTypedWorkItem();
+
     /**
      * The given work item should be executed.
      * @param workItem the work item that should be executed
