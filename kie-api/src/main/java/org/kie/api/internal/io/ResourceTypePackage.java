@@ -28,7 +28,7 @@ import org.kie.api.io.ResourceType;
  *
  * @param <T> the type of such a processed resource
  */
-public interface ResourceTypePackage<T> {
+public interface ResourceTypePackage<T> extends Iterable<T> {
     ResourceType getResourceType();
 
     /**
@@ -50,8 +50,6 @@ public interface ResourceTypePackage<T> {
     T lookup(String id);
 
     void add(T processedResource);
-
-    Iterable<? extends T> contents();
 
     default void remove(String id) {
         throw new UnsupportedOperationException();
