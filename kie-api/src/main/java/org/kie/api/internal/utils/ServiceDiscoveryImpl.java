@@ -46,7 +46,7 @@ public class ServiceDiscoveryImpl {
     }
 
     public static ServiceDiscoveryImpl getInstance() {
-        return LazyHolder.INSTANCE;
+        return null;
     }
 
     private Map<String, Object>     services   = new HashMap<>();

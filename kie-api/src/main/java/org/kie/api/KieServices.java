@@ -338,7 +338,7 @@ public interface KieServices {
     class Factory {
 
         private static class LazyHolder {
-            private static KieServices INSTANCE = ServiceRegistry.getInstance().get(KieServices.class);
+            private static KieServices INSTANCE = null;
         }
 
         /**
