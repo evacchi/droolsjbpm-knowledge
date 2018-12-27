@@ -108,8 +108,7 @@ public interface StatelessKieSession
         extends
         StatelessRuleSession,
         StatelessProcessSession,
-        CommandExecutor,
-        KieRuntimeEventManager {
+        CommandExecutor {
 
     /**
      * @return the Globals store
@@ -151,4 +150,6 @@ public interface StatelessKieSession
      * @return the KieBase reference from which this stateless session was created.
      */
     KieBase getKieBase();
+
+    KieRuntimeEventManager getKieRuntimeEventManager();
 }

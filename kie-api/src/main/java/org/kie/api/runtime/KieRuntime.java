@@ -26,8 +26,7 @@ import org.kie.api.time.SessionClock;
 
 public interface KieRuntime
     extends
-    RuleRuntime,
-    KieRuntimeEventManager {
+    RuleRuntime {
 
     /**
      * @return the session clock instance assigned to this session
@@ -63,4 +62,6 @@ public interface KieRuntime
     Map< String, Channel> getChannels();
 
     KieSessionConfiguration getSessionConfiguration();
+
+    KieRuntimeEventManager getKieRuntimeEventManager();
 }
