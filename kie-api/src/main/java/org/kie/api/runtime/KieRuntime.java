@@ -54,14 +54,9 @@ public interface KieRuntime
      */
     KieBase getKieBase();
 
-    void registerChannel(String name,
-                         Channel channel);
-
-    void unregisterChannel(String name);
-
-    Map< String, Channel> getChannels();
-
     KieSessionConfiguration getSessionConfiguration();
 
     KieRuntimeEventManager getKieRuntimeEventManager();
+
+    ChannelManager getChannelManager();
 }
