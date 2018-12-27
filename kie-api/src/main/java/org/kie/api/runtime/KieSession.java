@@ -17,6 +17,7 @@
 package org.kie.api.runtime;
 
 import org.kie.api.runtime.process.StatefulProcessSession;
+import org.kie.api.runtime.process.WorkItemManager;
 import org.kie.api.runtime.rule.StatefulRuleSession;
 
 /**
@@ -141,6 +142,8 @@ public interface KieSession
      * @return the runtime instance for the extension
      */
     <T> T getKieRuntime(Class<T> cls);
+
+    WorkItemManager getWorkItemManager();
 
     /**
      * An action that will be executed atomically on this session.

@@ -27,7 +27,6 @@ import org.kie.api.time.SessionClock;
 public interface KieRuntime
     extends
     RuleRuntime,
-    ProcessRuntime,
     KieRuntimeEventManager {
 
     /**
